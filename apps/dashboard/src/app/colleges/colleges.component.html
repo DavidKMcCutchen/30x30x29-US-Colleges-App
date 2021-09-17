@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="col-50" layout="row" layout-align="center center">
+      <colleges-college-list
+        [colleges]="allColleges$ | async"
+        (selected)="selectCollege($event)"
+        (deleted)="deleteCollege($event)"
+        (collegeViewed)="viewCollege($event)"
+      ></colleges-college-list>
+    </div>
+    <div class="col-50" layout="row" layout-align="center center">
+      <colleges-college-details
+        [college]="selectedCollege$ | async"
+        (saved)="saveCollege($event)"
+        (cancelled)="resetCollege()"
+        [form]="form"
+      ></colleges-college-details>
+    </div>
+  </div>
